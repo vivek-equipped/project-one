@@ -9,7 +9,7 @@ async function getItems() {
         await client.connect();
         const db = client.db(dbName);
         const collection = db.collection('items');  // The collection we are working with
-        const items = await collection.find().toArray();  // Fetch all items
+        const items = await collection.find().sort({_id:-1}).toArray();  // Fetch all items
 
         return items;
     } finally {
